@@ -13,23 +13,14 @@ def read_root():
     return {"Hello": "Dale"}
 
 
-@app.get("/getItems/{id}")
+@app.get("/get-svm/{id}")
 def requisicao(id: str):
     X_test = ge.getValues(id)
     y_pred = s.svm(X_test["data"])
     objeto = {
         "personID": id,
-        "data": y_pred
+        "data": []
     }
-    # objeto = {
-    #     "personID": id,
-    #     "data": []
-    # }
-    # for i in y_pred:  # Número de Colunas
-    #     objeto["data"].append(i)
-    # return objeto
-
-
-
-#  for item in y_pred:
-#     print(item)
+    for i in y_pred:  # Número de Colunas
+        objeto["data"].append(int(i))
+    return objeto

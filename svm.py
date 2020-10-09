@@ -17,5 +17,4 @@ def svm(X_test):
 
         model.fit(X_train, y_train)# Make prediction
         y_pred = model.predict(X_test)# Evaluate our model
-
         return y_pred
