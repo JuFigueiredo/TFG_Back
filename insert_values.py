@@ -18,7 +18,7 @@ collection = dababase.test_data
 index = 0
 
 
-for i in range(3162):  # Número de Linhas
+for i in range(3161):  # Número de Linhas
     dataSet = {
         "userId": Ids[i],
         "values": []
