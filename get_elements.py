@@ -7,11 +7,11 @@ def getValues(id: str):
     dababase = client.veios_fall
     collection = dababase.test_data
 
-    dale = collection.find({"userId": {"$eq": id}})
+    values = collection.find({"userId": {"$eq": id}})
 
     matrix = []
 
-    for item in dale:
+    for item in values:
         matrix.append(item["values"])
 
     objeto = {

@@ -10,7 +10,6 @@ from sklearn.metrics import classification_report, confusion_matrix
 def svm(X_test):
         X_train = pd.read_csv("X_train.txt", sep=" ", header=None)
         y_train = pd.read_csv("y_train.txt", header=None)
-        y_test = pd.read_csv("y_test.txt", header=None)
 
                 # Radial Basis Function kernal
         model = SVC(kernel='rbf', gamma=0.001, C=100)
