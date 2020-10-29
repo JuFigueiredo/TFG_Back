@@ -5,6 +5,7 @@ from fastapi.middleware.cors import CORSMiddleware
 
 import get_elements as ge
 import svm as s
+import rna as r
 
 app = FastAPI()
 
@@ -22,7 +23,7 @@ def read_root():
 
 
 @app.get("/get-svm/{id}")
-def requisicao(id: str):
+def reqSVM(id: str):
     X_test = ge.getValues(id)
     y_pred = s.svm(X_test["data"])
     objeto = {
@@ -35,14 +36,14 @@ def requisicao(id: str):
 
 
 
-# @app.get("/get-rna/{id}")
-# def requisicao(id: str):
-#     X_test = ge.getValues(id)
-#     y_pred = s.svm(X_test["data"])
-#     objeto = {
-#         "personID": id,
-#         "data": []
-#     }
-#     for i in y_pred:  # Número de Colunas
-#         objeto["data"].append(int(i))
-#     return objeto
+@app.get("/get-rna/{id}")
+def reqRNA(id: str):
+    X_test = ge.getValues(id)
+    y_pred = r.rna(X_test["data"])
+    objeto = {
+        "personID": id,
+        "data": []
+    }
+    for i in y_pred:  # Número de Colunas
+        objeto["data"].append(int(i))
+    return objeto
